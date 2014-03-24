@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Результаты опроса среди читателей PHP-дайджестов">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" href="http://pronskiy.com/php-digest/assets/images/favicon.png">
+
+    <title>PHP Дайджест &mdash; Опрос 2014</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-22346462-1', 'pronskiy.com');
+        ga('send', 'pageview');
+
+    </script>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <img src="http://pronskiy.com/php-digest/assets/images/php-digest.png" class="logo">
+        <h1 class="text-muted">PHP Дайджест &mdash; Опрос 2014</h1>
+      </div>
+
+      <p>В <a href="http://habrahabr.ru/company/zfort/blog/215183/">37-ом выпуске PHP-дайджеста</a> был проведен <a href="https://docs.google.com/forms/d/10pjwTAjZFvxbdMJ2jw31gVQF4Y4CPoxUQa-PoIaFnmA/viewform">опрос</a> среди читателей. Спасибо всем, кто принял участие в нем!</p>
+      <p>Ниже можно ознакомиться с результатами опроса.</p>
+
+
+      <div id="chart1"></div>
+      <div id="chart2"></div>
+      <div id="chart3"></div>
+      <div id="chart4"></div>
+      <div id="chart5"></div>
+      <div id="chart6"></div>
+      <div id="chart7"></div>
+      <div id="chart8"></div>
+
+      <h5>Число переходов страницу опроса</h5>
+      <div id="chart9"></div>
+
+      <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Answer');
+        data.addColumn('number', 'Count');
+        data.addRows([
+          ['Раз в две недели (оставить как есть)', 175],
+          ['Раз в месяц (в два раза реже)', 16],
+          ['Раз в неделю (в два раза чаще)',  126]
+        ]);
+
+        // Set chart options
+        var options = {
+          'title':'Какая периодичность предпочтительнее?',
+          'width':600,
+          'height':400,
+          is3D: true
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart1'));
+        chart.draw(data, options);
+
+
+//2
+        var data2 = new google.visualization.DataTable();
+        data2.addColumn('string', 'Answer');
+        data2.addColumn('number', 'Count');
+        data2.addRows([
+          ['Новости и релизы', 216],
+          ['PHP', 286],
+          ['Инструменты', 264],
+          ['Материалы для обучения', 212],
+          ['Материалы с прошедших конференций', 105],
+          ['Аудио и видео',  72],
+          ['Занимательное', 132]
+        ]);
+        data2.sort([{column: 1, desc:true}]);
+
+        // Set chart options
+        var options2 = {
+          'title':'Наиболее полезные для вас разделы',
+          'width':600,
+          'height':400
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart2 = new google.visualization.BarChart(document.getElementById('chart2'));
+        chart2.draw(data2, options2);
+
+
+//3
+        var data3 = new google.visualization.DataTable();
+        data3.addColumn('string', 'Answer');
+        data3.addColumn('number', 'Count');
+        data3.addRows([
+          ['Фреймворки', 271],
+          ['Тестирование  ', 132],
+          ['Highload  ', 218],
+          ['RFC и php.internals',  98],
+          ['Альтернативные реализации PHP (HHVM, kPHP) ', 108],
+          ['CMS (WP, Drupal, Joomla) ',  56],
+          ['E-commerce ',  65],
+          ['Базы данных ', 218],
+          ['Разработка API  ', 164],
+          ['Микрофреймворки ', 122],
+          ['DevOps ', 118],
+          ['Лучшие практики ', 259],
+          ['Паттерны проектирования ', 209],
+          ['Стандарты кодирования ', 165],
+          ['IDE ', 145]
+        ]);
+        data3.sort([{column: 1, desc:true}]);
+
+        // Set chart options
+        var options3 = {
+          'title':'Ссылки на какие темы для вас интереснее?',
+          'width':600,
+          'height':400,
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart3 = new google.visualization.BarChart(document.getElementById('chart3'));
+        chart3.draw(data3, options3);
+
+
+//4
+        var data4 = new google.visualization.DataTable();
+        data4.addColumn('string', 'Answer');
+        data4.addColumn('number', 'Count');
+        data4.addRows([
+          ['5.2', 7],
+          ['5.3', 93],
+          ['5.4', 119],
+          ['5.5', 95]
+        ]);
+        data4.sort([{column: 0, desc:true}]);
+
+        // Set chart options
+        var options4 = {
+          'title':'Какую из версий PHP используете чаще всего на данный момент?',
+          'width':600,
+          'height':400,
+          is3D: true
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart4 = new google.visualization.PieChart(document.getElementById('chart4'));
+        chart4.draw(data4, options4);
+
+
+//5
+        var data5 = new google.visualization.DataTable();
+        data5.addColumn('string', 'Answer');
+        data5.addColumn('number', 'Count');
+        data5.addRows([
+          ['Микрофреймворк',  6],
+          ['Другие', 7],
+          ['CodeIgniter', 10],
+          ['Kohana', 17],
+          ['Laravel', 32],
+          ['Phalcon', 10],
+          ['Symfony 2', 78],
+          ['Yii', 73],
+          ['Zend Framework 1, 2', 22],
+          ['Не использую фреймворки', 50],
+          ['Свой',  7]
+        ]);
+        data5.sort([{column: 1, desc:true}]);
+
+        // Set chart options
+        var options5 = {
+          'title':'Какому из PHP-фреймворков отдаете предпочтение?',
+          'width':730,
+          'height':400,
+          is3D: true
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart5 = new google.visualization.PieChart(document.getElementById('chart5'));
+        chart5.draw(data5, options5);
+
+
+        //6
+        var data6 = new google.visualization.DataTable();
+        data6.addColumn('string', 'Answer');
+        data6.addColumn('number', 'Count');
+        data6.addRows([
+          ['Негативно, в дайджестах не должно быть спонсорских ссылок', 26],
+          ['Нейтрально',  99],
+          ['Одобряю, если это поможет дайджестам',  184],
+        ]);
+        data6.sort([{column: 1, desc:true}]);
+
+        // Set chart options
+        var options6 = {
+          'title':'Как вы относитесь к спонсорским ссылкам?',
+          'width':600,
+          'height':400,
+          is3D: true
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart6 = new google.visualization.PieChart(document.getElementById('chart6'));
+        chart6.draw(data6, options6);
+
+
+        //7
+        var data7 = new google.visualization.DataTable();
+        data7.addColumn('string', 'Answer');
+        data7.addColumn('number', 'Count');
+        data7.addRows([
+          ['Да',   121],
+          ['Нет',  172],
+          ['Другой ответ',  7],
+        ]);
+        data7.sort([{column: 1, desc:true}]);
+
+        // Set chart options
+        var options7 = {
+          'title':'Добавить ли в выпуски обзор интересных вакансий?',
+          'width':600,
+          'height':400,
+          is3D: true
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart7 = new google.visualization.PieChart(document.getElementById('chart7'));
+        chart7.draw(data7, options7);
+
+
+        //8
+        var data8 = new google.visualization.DataTable();
+        data8.addColumn('string', 'Answer');
+        data8.addColumn('number', 'Count');
+        data8.addRows([
+          ['Необходимо сделать упор на материалы для профессионалов', 69],
+          ['Слишком мало материалов для начинающих', 43],
+          ['Другой ответ',  2],
+          ['Сложность сбалансирована', 188]
+        ]);
+        data8.sort([{column: 1, desc:true}]);
+
+        // Set chart options
+        var options8 = {
+          'title':'Как вы оцениваете сложность материалов?',
+          'width':600,
+          'height':400,
+          is3D: true
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart8 = new google.visualization.PieChart(document.getElementById('chart8'));
+        chart8.draw(data8, options8);
+
+
+        //9
+        var data9 = google.visualization.arrayToDataTable([
+          ['Страна', 'Посетителей'],
+          ['Russian Federation', 180],
+          ['Ukraine', 113],
+          ['Belarus', 32],
+          ['Kazakhstan', 12],
+          ['Latvia', 8],
+          ['Moldova', 4],
+          ['United States', 4],
+          ['Spain', 3],
+          ['Netherlands', 3],
+          ['Germany', 3],
+          ['Uzbekistan', 2],
+          ['Poland', 2],
+          ['Sweden', 2],
+          ['Serbia', 2],
+          ['Canada', 2],
+          ['Lithuania', 2],
+          ['Estonia', 1],
+          ['Cyprus', 1],
+          ['United Kingdom', 1],
+          ['Tajikistan', 1],
+          ['Israel', 1],
+          ['Azerbaijan', 1],
+          ['India', 1],
+          ['Austria', 1],
+          ['Thailand', 1],
+          ['Viet Nam', 1],
+          ['Italy', 1],
+          ['Finland', 1],
+          ['China', 1]
+        ]);
+
+        var options9 = {
+          'width':600,
+          'height':400,
+          legend: {textStyle: {color: 'blue', fontSize: 16}}
+        };
+
+        var chart9 = new google.visualization.GeoChart(document.getElementById('chart9'));
+        chart9.draw(data9, options9);
+      }
+    </script>
+
+      <div class="footer">
+        <p><a href="http://twitter.com/pronskiy">@pronskiy</a></p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
